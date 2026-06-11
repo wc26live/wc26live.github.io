@@ -1,0 +1,414 @@
+/* =========================================
+   Color Variables & Reset
+   ========================================= */
+:root {
+    --bg-color: #050810;
+    --primary-red: #e63946;
+    --text-light: #ffffff;
+    --text-muted: #8b94a5;
+    --glass-bg: rgba(20, 25, 40, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --neon-green: #00ff88;
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Poppins', sans-serif; 
+}
+
+body { 
+    background-color: var(--bg-color); 
+    color: var(--text-light); 
+    overflow-x: hidden; 
+}
+
+/* =========================================
+   Animations
+   ========================================= */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(230, 57, 70, 0.8); }
+    70% { transform: scale(1); box-shadow: 0 0 0 12px rgba(230, 57, 70, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(230, 57, 70, 0); }
+}
+
+@keyframes spin { 
+    100% { transform: rotate(360deg); } 
+}
+
+.fade-in-up { 
+    animation: fadeInUp 0.8s ease-out forwards; 
+    opacity: 0; 
+}
+.delay-1 { 
+    animation-delay: 0.3s; 
+}
+
+/* =========================================
+   Navbar
+   ========================================= */
+.navbar {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 20px 5%; 
+    background: rgba(5, 8, 16, 0.85); 
+    backdrop-filter: blur(15px);
+    position: sticky; 
+    top: 0; 
+    z-index: 100; 
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.logo h1 { 
+    font-weight: 800; 
+    font-size: 26px; 
+    letter-spacing: 2px; 
+    text-shadow: 0 2px 10px rgba(230,57,70,0.3); 
+}
+
+.logo span { 
+    color: var(--primary-red); 
+}
+
+.live-indicator {
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+    font-weight: 600; 
+    color: white;
+    background: rgba(30, 10, 15, 0.4); 
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(230, 57, 70, 0.3);
+    padding: 8px 22px;
+    border-radius: 30px; 
+    box-shadow: 0 0 20px rgba(230, 57, 70, 0.1); 
+}
+
+.live-indicator .dot { 
+    width: 9px; 
+    height: 9px; 
+    background: var(--primary-red); 
+    border-radius: 50%; 
+    animation: pulseGlow 1.8s infinite ease-in-out; 
+}
+
+/* =========================================
+   Layout Grid
+   ========================================= */
+.container { 
+    display: grid; 
+    grid-template-columns: 2.8fr 1.2fr; 
+    gap: 30px; 
+    padding: 40px 5%; 
+    max-width: 1800px; 
+    margin: 0 auto; 
+}
+
+.glass-panel { 
+    background: var(--glass-bg); 
+    backdrop-filter: blur(12px); 
+    border: 1px solid var(--glass-border); 
+    border-radius: 16px; 
+    padding: 20px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
+    transition: transform 0.3s; 
+}
+
+.glass-panel:hover { 
+    transform: translateY(-5px); 
+}
+
+/* =========================================
+   Video Section
+   ========================================= */
+.video-container {
+    position: relative; 
+    width: 100%; 
+    aspect-ratio: 16 / 9; 
+    background: #000;
+    border-radius: 16px; 
+    overflow: hidden; 
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    border: 1px solid var(--glass-border);
+}
+
+video { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+.video-live-badge {
+    position: absolute; 
+    top: 15px; 
+    left: 15px; 
+    background: rgba(10, 15, 25, 0.4); 
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(230, 57, 70, 0.2);
+    color: rgba(255, 255, 255, 0.85); 
+    padding: 5px 12px; 
+    border-radius: 20px; 
+    font-size: 11px; 
+    font-weight: 700;
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+    z-index: 5; 
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    pointer-events: none; 
+}
+
+.video-live-badge .dot { 
+    width: 7px; 
+    height: 7px; 
+    background: var(--primary-red); 
+    border-radius: 50%; 
+    box-shadow: 0 0 10px rgba(230, 57, 70, 0.8);
+    animation: pulseGlow 1.8s infinite ease-in-out; 
+}
+
+video::-webkit-media-controls-timeline,
+video::-webkit-media-controls-current-time-display,
+video::-webkit-media-controls-time-remaining-display,
+video::-webkit-media-controls-play-button { 
+    display: none !important; 
+}
+
+video::-webkit-media-controls-panel { 
+    display: flex !important; 
+    justify-content: flex-end !important; 
+    padding-right: 15px; 
+    background: linear-gradient(transparent, rgba(0,0,0,0.7)) !important; 
+}
+
+.loading-overlay { 
+    position: absolute; 
+    inset: 0; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    background: rgba(0,0,0,0.85); 
+    z-index: 10; 
+    transition: opacity 0.5s ease; 
+}
+
+.spinner { 
+    width: 50px; 
+    height: 50px; 
+    border: 4px solid rgba(255,255,255,0.1); 
+    border-top: 4px solid var(--primary-red); 
+    border-radius: 50%; 
+    animation: spin 1s linear infinite; 
+    margin-bottom: 15px; 
+}
+
+.channel-info h2 { 
+    font-size: 22px; 
+    margin-bottom: 5px; 
+    color: white; 
+}
+
+.channel-info p { 
+    color: var(--text-muted); 
+    font-size: 14px; 
+}
+
+.pulse-dot { 
+    width: 8px; 
+    height: 8px; 
+    background: var(--primary-red); 
+    border-radius: 50%; 
+    animation: pulseGlow 1.5s infinite; 
+}
+
+/* =========================================
+   Premium Footer
+   ========================================= */
+.premium-footer { 
+    background: #03050a; 
+    padding: 60px 5% 20px; 
+    border-top: 1px solid var(--glass-border); 
+    margin-top: 50px; 
+}
+
+.footer-content { 
+    display: grid; 
+    grid-template-columns: 2fr 1fr 1fr; 
+    gap: 40px; 
+    margin-bottom: 40px; 
+}
+
+.footer-about h2 { 
+    font-weight: 800; 
+    font-size: 24px; 
+    margin-bottom: 15px; 
+}
+
+.footer-about span { 
+    color: var(--primary-red); 
+}
+
+.footer-about p { 
+    color: var(--text-muted); 
+    font-size: 14px; 
+    line-height: 1.6; 
+}
+
+.footer-links h3, .footer-social h3 { 
+    color: white; 
+    font-size: 16px; 
+    margin-bottom: 20px; 
+}
+
+.footer-links ul { 
+    list-style: none; 
+}
+
+.footer-links li { 
+    margin-bottom: 10px; 
+}
+
+.footer-links a { 
+    color: var(--text-muted); 
+    text-decoration: none; 
+    transition: color 0.3s; 
+}
+
+.footer-links a:hover { 
+    color: var(--primary-red); 
+}
+
+.social-icons { 
+    display: flex; 
+    gap: 15px; 
+}
+
+.social-icons a { 
+    display: inline-flex; 
+    justify-content: center; 
+    align-items: center; 
+    width: 40px; 
+    height: 40px; 
+    background: var(--glass-bg); 
+    border: 1px solid var(--glass-border); 
+    border-radius: 50%; 
+    color: white; 
+    transition: 0.3s; 
+}
+
+.social-icons a:hover { 
+    background: var(--primary-red); 
+    transform: translateY(-3px); 
+}
+
+.footer-bottom { 
+    text-align: center; 
+    padding-top: 20px; 
+    border-top: 1px solid var(--glass-border); 
+    color: var(--text-muted); 
+    font-size: 13px; 
+}
+
+/* =========================================
+   Responsive Design (Tablet & Mobile Fixed)
+   ========================================= */
+@media (max-width: 1024px) {
+    .container { grid-template-columns: 1fr; gap: 20px; }
+    .footer-content { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 600px) {
+    .navbar { 
+        padding: 10px 5%; 
+        flex-direction: row; 
+        gap: 10px;
+    }
+    .logo h1 { font-size: 20px; }
+    
+    .live-indicator { 
+        padding: 6px 14px; 
+        font-size: 10px; 
+        gap: 6px;
+        border-radius: 20px;
+    }
+    .live-indicator .dot { width: 6px; height: 6px; }
+
+    .container { 
+        padding: 15px 5%; 
+        gap: 12px; 
+    }
+
+    .video-live-badge { 
+        top: 10px; 
+        left: 10px; 
+        padding: 3px 8px; 
+        font-size: 9px; 
+        gap: 6px;
+        background: rgba(10, 15, 25, 0.6); 
+        border-radius: 15px;
+    }
+    .video-live-badge .dot { width: 5px; height: 5px; }
+
+    .glass-panel { padding: 12px; } 
+    .channel-info { 
+        margin-top: 12px; 
+    }
+    .channel-info h2 { font-size: 16px; margin-bottom: 2px; }
+    .channel-info p { font-size: 12px; }
+
+    .premium-footer { margin-top: 30px; padding: 40px 5% 15px; }
+    .footer-content { grid-template-columns: 1fr; gap: 25px; text-align: center; }
+    .social-icons { justify-content: center; }
+}
+
+/* Extra small devices */
+@media (max-width: 380px) {
+    .logo h1 { font-size: 16px; }
+}
+
+/* =========================================
+   Server Buttons
+   ========================================= */
+.server-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.server-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    color: var(--text-light);
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.server-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.server-btn.active {
+    background: var(--primary-red);
+    border-color: var(--primary-red);
+    box-shadow: 0 0 15px rgba(230, 57, 70, 0.4);
+}
+
+@media (max-width: 600px) {
+    .server-buttons { gap: 8px; }
+    .server-btn { padding: 6px 12px; font-size: 11px; }
+}
