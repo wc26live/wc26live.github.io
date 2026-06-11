@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Default stream
-    loadStream(1);
+    loadStream(3);
 
     // Server switch buttons
     serverBtns.forEach(btn => {
