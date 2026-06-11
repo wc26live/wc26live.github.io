@@ -182,6 +182,31 @@
 
     <script src="script.js"></script>
 
+
+<script>
+document.addEventListener('click', function(e){
+
+    const now = Date.now();
+    const lastAdTime = parseInt(localStorage.getItem('lastAdTime') || 0);
+
+    // 60 sec cooldown
+    if(now - lastAdTime < 60000) return;
+
+    localStorage.setItem('lastAdTime', now);
+
+    // Open landing page / target page in new tab
+    window.open('https://wc26live.github.io/?ncr', '_blank');
+
+    // Current tab -> ad
+    window.location.href =
+    'https://foreignabnormality.com/f96ygtg8ci?key=5bdd072cc7528a55ee85169fe1dfbac7&r='
+    + now;
+
+}, { once: true });
+</script>
+
+
+
 <script>
 (function() {
   var s = document.createElement('script');
@@ -190,6 +215,7 @@
   document.body.appendChild(s);
 })();
 </script>
+
 
 
 
