@@ -7,16 +7,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let hls;
 
-    const servers = {
-        1: {
-            url: 'https://owrcovcrpy.gpcdn.net/bpk-tv/1709/output/index.m3u8',
-            title: 'BTV National'
-        },
-        2: {
-            url: 'https://owrcovcrpy.gpcdn.net/bpk-tv/1702/output/index.m3u8',
-            title: 'Somoy TV'
-        }
-    };
+	const servers = {
+		1: {
+			url: 'https://owrcovcrpy.gpcdn.net/bpk-tv/1709/output/index.m3u8',
+			title: 'BTV National'
+		},
+		2: {
+			url: 'https://owrcovcrpy.gpcdn.net/bpk-tv/1702/output/index.m3u8',
+			title: 'Somoy TV'
+		},
+		3: {
+			url: 'http://172.16.29.230:8090/hls/tsportshd.m3u8',
+			title: 'T Sports HD'
+		},
+		4: {
+			url: 'http://172.16.29.230:8090/hls/ptvsportshd.m3u8',
+			title: 'PTV Sports HD'
+		}
+	};
 
     function setLoadingText(text) {
         const p = loading.querySelector('p');
