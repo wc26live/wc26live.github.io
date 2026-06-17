@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			title: 'Somoy TV'
 		},
 		3: {
-			url: 'http://172.16.29.230:8090/hls/tsportshd.m3u8',
+			url: 'http://198.195.239.50:8095/tsports/tracks-v1a1/mono.m3u8',
 			title: 'T Sports HD'
 		},
 		4: {
