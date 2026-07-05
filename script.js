@@ -9,11 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	const servers = {
 		1: {
-			url: 'https://owrcovcrpy.gpcdn.net/bpk-tv/1709/output/index.m3u8',
-			title: 'BTV National'
+			url: 'http://198.195.239.50:8095/unt-s/video.m3u8',
+			title: 'WORLD CUP 2026'
 		},
 		2: {
-			url: 'https://owrcovcrpy.gpcdn.net/bpk-tv/1702/output/index.m3u8',
+			url: 'http://198.195.239.50:8095/somoyTv/tracks-v1a1/mono.m3u8',
 			title: 'Somoy TV'
 		},
 		3: {
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			title: 'T Sports HD'
 		},
 		4: {
-			url: 'http://172.16.29.230:8090/hls/ptvsportshd.m3u8',
+			url: 'http://198.195.239.50:8095/ptv/index.m3u8',
 			title: 'PTV Sports HD'
 		}
 	};
