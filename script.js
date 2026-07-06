@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	const servers = {
 		1: {
-			url: 'http://198.195.239.50:8095/unt-s/video.m3u8',
-			title: 'WORLD CUP 2026'
+			url: 'http://180.94.28.28:8097//BTV/index.fmp4.m3u8',
+			title: 'WORLD CUP 2026 BTV'
 		},
 		2: {
 			url: 'http://198.195.239.50:8095/somoyTv/tracks-v1a1/mono.m3u8',
