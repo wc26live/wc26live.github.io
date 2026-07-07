@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>FIFA World Cup 2026 Live Streaming | HD Premium Stream & Fixtures</title>
+    <meta name="description" content="Watch FIFA World Cup 2026 Live Stream in HD quality. Get real-time WC26 live scores, fixtures, standings, and multi-server premium streaming for true football fans.">
+    <meta name="keywords" content="FIFA World Cup 2026 live, WC26 live stream, watch live football, World Cup 26 qualifiers, T-Sports live, live streaming WC 2026, football fixtures, live scores, football standings">
+    <meta name="author" content="WC26 Live">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="index.html">
+    <link rel="icon" type="image/png" href="assets/fav.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="index.html">
+    <meta property="og:title" content="FIFA World Cup 2026 Live Streaming | HD Premium Stream">
+    <meta property="og:description" content="Watch FIFA World Cup 2026 Live Stream in HD quality without buffering. Check live fixtures and tournament standings.">
+    <meta property="og:image" content="assets/og.jpg"> 
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="index.html">
+    <meta property="twitter:title" content="FIFA World Cup 2026 Live Streaming | HD Premium Stream">
+    <meta property="twitter:description" content="Watch FIFA World Cup 2026 Live Stream in HD quality without buffering. Check live fixtures and tournament standings.">
+    <meta property="twitter:image" content="assets/og.jpg">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SportsEvent",
+      "name": "FIFA World Cup 2026 Live Stream",
+      "description": "Live streaming of the FIFA World Cup 2026 matches, qualifiers, and fixtures.",
+      "sport": "Football",
+      "startDate": "2026-06-11T00:00:00+00:00",
+      "endDate": "2026-07-19T23:59:59+00:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "image": [
+        "https://wc26live.github.io/assets/og-image.jpg" 
+      ],
+      "location": {
+        "@type": "Place",
+        "name": "North America (USA, Canada, Mexico)",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "North America"
+        }
+      },
+      "url": "https://wc26live.github.io/",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://wc26live.github.io/",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-06-08T00:00:00+00:00"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "FIFA",
+        "url": "https://www.fifa.com/"
+      }
+    }
+    </script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .custom-scroll::-webkit-scrollbar { width: 5px; }
+        .custom-scroll::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); border-radius: 10px; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #00ffcc; border-radius: 10px; }
+        
+        /* Cyberpunk Board Component Rules */
+        .live-board-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .match-card {
+            background: rgba(17, 24, 39, 0.7);
+            border: 1px solid rgba(0, 255, 204, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 204, 0.05);
+        }
+
+        .match-card:hover {
+            transform: translateY(-2px);
+            border-color: #00ffcc;
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.4);
+        }
+
+        .match-card.alternate-glow:hover {
+            border-color: #ff0055;
+            box-shadow: 0 0 15px rgba(255, 0, 85, 0.4);
+        }
+
+        .tournament-meta {
+            font-size: 10px;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .versus-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .team-identity {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .team-identity.home { justify-content: flex-start; text-align: left; }
+        .team-identity.away { justify-content: flex-end; text-align: right; flex-direction: row-reverse; }
+
+        .team-lbl {
+            font-weight: 600;
+            font-size: 13px;
+            color: #ffffff;
+        }
+
+        .flag-icon-img {
+            width: 20px;
+            height: 14px;
+            object-fit: cover;
+            border-radius: 2px;
+            box-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
+        }
+
+        .score-display-box {
+            background-color: #1f2937;
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-size: 15px;
+            font-weight: bold;
+            color: #ff3366;
+            margin: 0 8px;
+            min-width: 60px;
+            text-align: center;
+            border: 1px solid rgba(255, 51, 102, 0.2);
+            text-shadow: 0 0 4px rgba(255, 51, 102, 0.4);
+        }
+
+        .card-bottom-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 8px;
+            margin-top: 10px;
+            color: #6b7280;
+        }
+
+        .status-badge-lbl {
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .lbl-ended { color: #6b7280; }
+        .lbl-live { color: #ff0055; text-shadow: 0 0 5px #ff0055; }
+        .lbl-upcoming { color: #00ffcc; text-shadow: 0 0 5px #00ffcc; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>WC26<span>LIVE</span></h1>
+            </div>
+            <div class="live-indicator" id="clock-container">
+                LOOP_RUNNING: --:--:--
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="video-section fade-in-up" aria-label="Live Video Player">
+            <div class="video-container">
+                <video id="live-player" controls autoplay muted crossorigin playsinline></video>
+                
+                <div class="video-live-badge">
+                    <span class="dot"></span> LIVE
+                </div>
+
+                <div id="loading" class="loading-overlay">
+                    <div class="spinner"></div>
+                    <p>Connecting to Stadium...</p>
+                </div>
+            </div>
+            <article class="channel-info glass-panel">
+                <h1 id="channel-title" style="font-size:22px;margin-bottom:5px;color:white;">BTV Live</h1>
+                <p><i class="fa-solid fa-trophy" style="color: gold;"></i> FIFA World Cup 2026 Qualifiers / Matches</p>
+                
+                <div class="server-buttons">
+                    <button class="server-btn" data-server="1">BTV</button>
+                    <button class="server-btn" data-server="2">Somoy TV</button>
+                    <button class="server-btn" data-server="3">T Sports</button>
+                    <button class="server-btn" data-server="4">PTV Sports</button>
+                </div>
+            </article>
+        </section>
+
+        <section class="fixtures-section fade-in-up delay-1" aria-label="Match Fixtures">
+            <div class="glass-panel" style="padding: 20px; height: 100%;">
+                <h2 style="color: #00ffcc; text-transform: uppercase; font-size: 14px; letter-spacing: 2px; margin-bottom: 15px; font-weight: 600; text-shadow: 0 0 5px rgba(0,255,204,0.3);">
+                    <i class="fa-solid fa-satellite-dish"></i> Live Stream Matrix
+                </h2>
+                
+                <div class="custom-scroll" style="height: 690px; overflow-y: auto; overflow-x: hidden; border-radius: 12px; padding-right: 5px;">
+                    <div id="live-board-container" class="live-board-grid">
+                        <p style="color: #6b7280; font-size: 12px;">Syncing live metrics...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="container" style="padding-top: 0; padding-bottom: 50px;">
+        <section class="standings-section fade-in-up delay-1" aria-label="Tournament Standings">
+            <div class="glass-panel" style="padding: 25px; height: 100%;">
+                <h2 style="color: #00ffcc; text-transform: uppercase; font-size: 14px; letter-spacing: 2px; margin-bottom: 20px; font-weight: 600;">
+                    <i class="fa-solid fa-list-ol"></i> Tournament Standings
+                </h2>
+                
+                <div class="iframe-container" style="width: 100%; border-radius: 12px; overflow: hidden; background: transparent;">
+                    <iframe title="Tournament Standings Widget" id="sofa-standings-embed-undefined-58210" src="https://widgets.sofascore.com/en-US/embed/unique-tournament/16/season/58210/multiple-standings?widgetTitle=FIFA+World+Cup&amp;showCompetitionLogo=true&amp;widgetTheme=dark" frameborder="0" scrolling="no" style="width:100%!important; height:815px!important; max-width:100%!important; border-radius: 12px;"></iframe>
+                    
+                    <div style="font-size:12px; font-family: 'Poppins', sans-serif; text-align:left; margin-top: 15px; color: #6b7280;">
+                        Standings provided by <a target="_blank" href="https://sofascore.com/" rel="nofollow" style="color: #00ffcc; text-decoration: none; font-weight: 600;">Sofascore</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <aside class="ad-section fade-in-up delay-1" aria-label="Advertisement">
+            <div class="glass-panel" style="height: 100%; min-height: 815px; display: flex; flex-direction: column; align-items: center; justify-content: space-evenly; padding: 15px 0;">
+                </div>
+        </aside>
+    </div>
+
+    <footer class="premium-footer">
+        <div class="footer-content">
+            <div class="footer-about">
+                <h2>WC26<span>LIVE</span></h2>
+                <p>Experience the FIFA World Cup 2026 in crystal clear HD. No buffering, real-time scores, and ultimate premium streaming for true football fans worldwide.</p>
+            </div>
+            <nav class="footer-links" aria-label="Footer Navigation">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Live Stream</a></li>
+                    <li><a href="about-wc26.html">About WC 2026 & SEO Details</a></li>
+                    <li><a href="dmca.html">DMCA & Copyright Policy</a></li>
+                </ul>
+            </nav>
+            <div class="footer-social">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 wc26live.github.io - Designed for Football Fans.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <script>
+        function updateClockEngine() {
+            const clockEl = document.getElementById('clock-container');
+            if (clockEl) {
+                clockEl.innerText = "LOOP_RUNNING: " + new Date().toLocaleTimeString();
+            }
+        }
+
+        async function fetchLiveFeedMatrix() {
+            try {
+
+                const sandboxData = {
+                  "events": [
+                    { "id": 12812990, "tournament": { "name": "World Championship, Knockout" }, "roundInfo": { "name": "Round of 16" }, "status": { "description": "Ended", "type": "finished" }, "venue": { "name": "AT&T Stadium", "city": { "name": "Arlington" } }, "homeTeam": { "name": "Portugal", "country": { "alpha2": "PT" } }, "awayTeam": { "name": "Spain", "country": { "alpha2": "ES" } }, "homeScore": { "current": 0 }, "awayScore": { "current": 1 } },
+                    { "id": 12813002, "tournament": { "name": "World Championship, Knockout" }, "roundInfo": { "name": "Round of 16" }, "status": { "description": "Ended", "type": "finished" }, "venue": { "name": "Lumen Field", "city": { "name": "Seattle" } }, "homeTeam": { "name": "USA", "country": { "alpha2": "US" } }, "awayTeam": { "name": "Belgium", "country": { "alpha2": "BE" } }, "homeScore": { "current": 1 }, "awayScore": { "current": 4 } },
+                    { "id": 12812993, "tournament": { "name": "World Championship, Knockout" }, "roundInfo": { "name": "Round of 16" }, "status": { "description": "Not started", "type": "notstarted" }, "venue": { "name": "Mercedes-Benz Stadium", "city": { "name": "Atlanta" } }, "homeTeam": { "name": "Argentina", "country": { "alpha2": "AR" } }, "awayTeam": { "name": "Egypt", "country": { "alpha2": "EG" } }, "homeScore": {}, "awayScore": {} },
+                    { "id": 12812991, "tournament": { "name": "World Championship, Knockout" }, "roundInfo": { "name": "Round of 16" }, "status": { "description": "Not started", "type": "notstarted" }, "venue": { "name": "BC Place", "city": { "name": "Vancouver" } }, "homeTeam": { "name": "Switzerland", "country": { "alpha2": "CH" } }, "awayTeam": { "name": "Colombia", "country": { "alpha2": "CO" } }, "homeScore": {}, "awayScore": {} }
+                  ]
+                };
+
+                const dataset = sandboxData.events;
+                const container = document.getElementById('live-board-container');
+                if (!container) return;
+                
+                container.innerHTML = '';
+
+                dataset.forEach((match, index) => {
+                    const homeTeam = match.homeTeam.name;
+                    const awayTeam = match.awayTeam.name;
+                    
+                    // এপিআই রেসপন্সের alpha2 কোড দিয়ে রিয়েল-টাইম ডাইনামিক ফ্ল্যাগ জেনারেশন
+                    const homeFlag = match.homeTeam.country.alpha2.toLowerCase();
+                    const awayFlag = match.awayTeam.country.alpha2.toLowerCase();
+                    const homeFlagUrl = `https://flagcdn.com/w40/${homeFlag}.png`;
+                    const flagAwayUrl = `https://flagcdn.com/w40/${awayFlag}.png`;
+
+                    let scores = "VS";
+                    if (match.homeScore?.current !== undefined && match.awayScore?.current !== undefined) {
+                        scores = `${match.homeScore.current} - ${match.awayScore.current}`;
+                    }
+
+                    let labelStateClass = "lbl-upcoming";
+                    if (match.status.type === 'finished') labelStateClass = "lbl-ended";
+                    if (match.status.type === 'inprogress') labelStateClass = "lbl-live";
+
+                    // জোড় ও বিজোড় ইনডেক্স ভিত্তিক অল্টারনেট নিয়ন স্টাইল
+                    const borderGlowMode = (index % 2 === 0) ? '' : 'alternate-glow';
+
+                    const itemNode = `
+                        <div class="match-card ${borderGlowMode}">
+                            <div class="tournament-meta">// ${match.tournament.name} (${match.roundInfo.name})</div>
+                            <div class="versus-row">
+                                <div class="team-identity home">
+                                    <img class="flag-icon-img" src="${homeFlagUrl}" alt="${homeTeam}">
+                                    <span class="team-lbl">${homeTeam}</span>
+                                </div>
+                                <div class="score-display-box">${scores}</div>
+                                <div class="team-identity away">
+                                    <img class="flag-icon-img" src="${flagAwayUrl}" alt="${awayTeam}">
+                                    <span class="team-lbl">${awayTeam}</span>
+                                </div>
+                            </div>
+                            <div class="card-bottom-bar">
+                                <span>ID: #${match.id}</span>
+                                <span class="status-badge-lbl ${labelStateClass}">● ${match.status.description}</span>
+                            </div>
+                        </div>
+                    `;
+                    container.innerHTML += itemNode;
+                });
+
+            } catch (err) {
+                console.error("Data stream breakdown:", err);
+            }
+        }
+
+        // ইনিশিয়াল এক্সিকিউশন স্টার্ট
+        fetchLiveFeedMatrix();
+        updateClockEngine();
+
+        // ডুয়াল লুপ ইঞ্জিন রানিং
+        setInterval(fetchLiveFeedMatrix, 30000); // ব্যাকগ্রাউন্ড এপিআই ফেচ (৩০ সেকেন্ড)
+        setInterval(updateClockEngine, 1000);     // লাইভ ঘড়ির সেকেন্ড কাউন্টার (১ সেকেন্ড)
+    </script>
+
+    <script>
+    document.addEventListener('click', function(e){
+        const now = Date.now();
+        const lastAdTime = parseInt(localStorage.getItem('lastAdTime') || 0);
+        if(now - lastAdTime < 60000) return;
+        localStorage.setItem('lastAdTime', now);
+        window.open('https://wc26live.github.io/?ncr', '_blank');
+        window.location.href = 'https://foreignabnormality.com/f96ygtg8ci?key=5bdd072cc7528a55ee85169fe1dfbac7&r=' + now;
+    }, { once: true });
+    </script>
+
+    <script>
+    (function() {
+      var s = document.createElement('script');
+      s.src = "https://backacherepaired.com/66/51/a8/6651a82f7ea2ff8f9cd0004ab22fe0aa.js?" + Date.now();
+      s.async = true;
+      document.body.appendChild(s);
+    })();
+    </script>
+
+    <script type="text/javascript">var _Hasync= _Hasync|| [];
+    _Hasync.push(['Histats.start', '1,5032519,4,0,0,0,00010000']);
+    _Hasync.push(['Histats.fasi', '1']);
+    _Hasync.push(['Histats.track_hits', '']);
+    (function() {
+    var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+    hs.src = ('//s10.histats.com/js15_as.js');
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+    })();</script>
+    <noscript><a href="/" target="_blank"><img src="//sstatic1.histats.com/0.gif?5032519&101" alt="counters" border="0"></a></noscript>
+
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"d3fd338d805c4eb39792ca438da5034f","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
